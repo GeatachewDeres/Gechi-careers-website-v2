@@ -51,10 +51,11 @@ It is a long established fact that a reader will be distracted by the readable c
  </p>
   <h1>Open Positions </h1>
   <p clas="bodytext"> Opning Job</p>
-  <!--this neithr html nor python programing part instad it is flask-->
+ <!-- {{ jobfl }}
+  this neithr html nor python programing part instad it is flask-->
    <P>
      <div>
-        {% for job in jobs %}
+        {% for job in jobfl %}
           {% include 'jobitem.html' %}
         {% endfor %}
      </div>
