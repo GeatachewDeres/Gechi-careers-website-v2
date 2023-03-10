@@ -13,7 +13,28 @@ def load_job_from_db():
     for row in result.all():
      result_list.append(list(row))
   return result_list
-  # """  print("print result type:",type(result))  
+def load_jobs_from_db(id):
+  with engine.connect() as connection:
+    result = connection.execute(
+    text("select *from jobs where id =id"))
+    #text("select *from jobs where id =:val*, val=id"))
+    rows = result.all()
+    if len(rows) == 0:
+         return None
+    else:
+         return list(rows[0])
+ 
+def upload_application_to_db(data):
+  with engine.connect() as connection:
+   connection.execute(text ("INSERT INTO jappliactions(fname, mname) values ('data.fname', 'data.mname')" 
+           ))
+      
+     
+
+
+# """ query = text ("INSERT INTO jappliactions(fname, mname) values (:fname, :mname)" )
+     # connection.execute(query, fname=data['fname'], mname=data['mname']) print("print result 
+     # type:",type(result))  
    # result_all= result.all()
    # print("print result.all type:",type(result_all)) 
    # print(" value of result all ", result_all)
